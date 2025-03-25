@@ -1,11 +1,16 @@
 import java.io.File;
 import java.util.*;
+import java.io.PrintWriter;
 
 public class Main {
     public static void main(String[] args) {
         List<Persoana> persoane = citireFisier("Persoana");
         afisare(persoane);
+        afisareFisier(persoane,"output.txt");
     }
+
+
+
     private static List<Persoana> citireFisier(String filePath) {
         List<Persoana> persoane = new ArrayList<>();
         try {
@@ -28,6 +33,18 @@ public class Main {
     private static void afisare(List<Persoana> persoane) {
         for (Persoana p : persoane) {
             System.out.println(p);
+        }
+    }
+
+    private static void afisareFisier(List<Persoana> persoane, String file) {
+        try {
+            PrintWriter writer = new PrintWriter("output.txt");
+            for (Persoana p : persoane) {
+                writer.println(p);
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("Eroare la scriere");
         }
     }
 }
