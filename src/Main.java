@@ -32,7 +32,7 @@ public class Main {
     }
     private static void afisare(List<Persoana> persoane) {
         for (Persoana p : persoane) {
-            System.out.println(p);
+            System.out.println(p+" ");
         }
     }
 
